@@ -1,14 +1,68 @@
-// set the variable compc to 0,1 or 2 
+// Possible Choices
+var textArray = [
+   'Schere',
+   'Stein',
+   'Papier'
+];
 function getComputerChoice() {
-   return Math.floor(Math.random() * 3) + 1;
+var randomIndex = Math.floor(Math.random() * textArray.length); 
+return textArray[randomIndex];
 }
 
-console.log (getComputerChoice());
 // get Player Choice
-function getHumanChoice() {
-    prompt('Your choice?');
- }
-console.log (getHumanChoice());
+//let getHumanChoice = prompt('Schere, Stein, Papier?'); 
+//getHumanChoice = getHumanChoice.charAt(0) + getHumanChoice.substring(1).toLowerCase();
 
-let humanScore = 0;
-let computerScore = 0;
+
+function getHumanChoice() {
+   let input = prompt('Schere, Stein, Papier?').toLowerCase();
+   return input.charAt(0).toUpperCase() + input.slice(1);
+}
+
+
+
+
+function playGame () {
+   
+   let humanScore = 0;
+   let computerScore = 0;
+
+   function playRound (humanChoice, computerChoice) {
+            if( 
+      (humanChoice==="Schere" && computerChoice==="Papier") || 
+      (humanChoice==="Stein" && computerChoice==="Schere") ||
+      (humanChoice==="Papier" && computerChoice==="Stein")
+   )
+         {
+            humanScore = humanScore+1
+            console.log ("You win " +humanChoice +" beats " +computerChoice);
+         }
+      else if (
+         (humanChoice==="Schere" && computerChoice==="Stein") || 
+         (humanChoice==="Stein" && computerChoice==="Papier") || 
+         (humanChoice==="Papier" && computerChoice==="Schere")
+      )
+      {
+         computerScore = computerScore+1
+         console.log ("You lose " +computerChoice +" beats " +humanChoice);
+      }
+      else {
+         console.log ("Untentschieden both " +computerChoice);
+      }
+   }
+   for (let i = 0; i < 5; i++) {
+      const humanSelection = getHumanChoice();
+      const computerSelection = getComputerChoice();
+      playRound(humanSelection, computerSelection);
+      console.log (humanScore, computerScore);
+   }
+
+
+//console.log (humanSelection, computerSelection);
+}
+
+playGame();
+
+
+
+
