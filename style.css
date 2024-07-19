@@ -1,0 +1,29 @@
+#winner {
+    font-weight: 700;
+    font-size: 22px;
+    text-color: rgb(92, 106, 184)
+    padding: 1rem;
+    margin: 2rem;
+}
+
+#result {
+    font-weight: 500;
+    font-size: 16px;
+    margin: 2rem;
+}
+
+button {
+    margin: 5 rem;
+    border-radius: 25px;
+    padding: 2 rem;
+    }
+
+#buttons {
+    display: flex;
+    gap: 2rem;
+    
+}
+
+img {
+    border-radius: 25px;
+}
